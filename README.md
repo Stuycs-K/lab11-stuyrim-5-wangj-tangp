@@ -22,3 +22,11 @@ Make a clear list of features that work/dont work
 1/10 Created Blastoise and Charizard classes and pushed to repository.
 1/10 Added Venasaur class to repository.
 1/11
+
+## Charizard
+|Move Type|Name|Effect|
+|Special|Blast Burn|Deals 150 damage|
+|Attack|Flamethrower|Deals 90 damage|
+|Support|Will-o-Wisp|Reduce damage taken by 1/2 and does 1/8 max hp per turn|
+|Self-support|Roost|Heals 1/2 max hp|
+|Mega|Dragon Dance|Increases attack damage by 1.5x|
