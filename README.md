@@ -31,3 +31,12 @@ Make a clear list of features that work/dont work
 |Support|Will-o-Wisp|Reduce damage taken by 1/2 and does 1/8 max hp per turn|
 |Self-support|Roost|Heals 1/2 max hp|
 |Mega|Dragon Dance|Increases attack damage by 1.5x|
+
+## Blastoise
+|Move Type|Name|Effect|
+|---|---|---|
+|Special|Water Spout|Deals 150 damage|
+|Attack|Hydro Pump|Deals 110 damage|
+|Support|Haze|Clears all stat effects|
+|Self-support|Shell Smash|Increases attack damage by 2x and heals for .67 hp|
+|Mega|Hyper Beam|Increases Defense|
