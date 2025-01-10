@@ -25,6 +25,7 @@ Make a clear list of features that work/dont work
 
 ## Charizard
 |Move Type|Name|Effect|
+|---|---|---|
 |Special|Blast Burn|Deals 150 damage|
 |Attack|Flamethrower|Deals 90 damage|
 |Support|Will-o-Wisp|Reduce damage taken by 1/2 and does 1/8 max hp per turn|
