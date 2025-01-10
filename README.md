@@ -18,5 +18,7 @@ Make a clear list of features that work/dont work
 
 ## Adventurer Subclasses
 
-replace this with your documentation for your two Adventurer subclasses. If you modify or replace the provided CodeWarrior class, please provide documentation for that as well.
 
+1/10 Created Blastoise and Charizard classes and pushed to repository.
+1/10 Added Venasaur class to repository.
+1/11
