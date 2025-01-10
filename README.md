@@ -24,6 +24,7 @@ Make a clear list of features that work/dont work
 1/11
 
 ## Charizard
+-250 HP
 |Move Type|Name|Effect|
 |---|---|---|
 |Special|Blast Burn|Deals 150 damage|
@@ -33,6 +34,7 @@ Make a clear list of features that work/dont work
 |Mega|Dragon Dance|Increases attack damage by 1.5x|
 
 ## Blastoise
+-300 HP
 |Move Type|Name|Effect|
 |---|---|---|
 |Special|Water Spout|Deals 150 damage|
@@ -42,6 +44,7 @@ Make a clear list of features that work/dont work
 |Mega|Hyper Beam|Increases Defense|
 
 ## Venusaur
+-350 HP
 |Move Type|Name|Effect|
 |---|---|---|
 |Special|Solar Beam|Deals 140 damage|
