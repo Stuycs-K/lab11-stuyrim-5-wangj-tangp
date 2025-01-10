@@ -1,14 +1,15 @@
 import java.util.Random;
 public class Charizard extends Adventurer{
   private int HP,maxHP,energy,maxEnergy;
-  public Boss(){
-    this.HP=500;
-    this.maxHP=500;
+  private boolean burn, sleep, sun, leechEnemy, leechSelf, hyper;
+  public Charizard(){
+    this.HP=350;
+    this.maxHP=350;
     this.energy=100;
     this.maxEnergy=100;
   }
   public String getSpecialName(){
-    return "";
+    return "Blast Burn";
   }
   public int getSpecial(){
     return energy;
@@ -16,8 +17,10 @@ public class Charizard extends Adventurer{
   public void setSpecial(int n){
     if(n>this.getSpecialMax()){
       this.energy=getSpecialMax();
-    }else this.energy=n;
-  }
+    }
+    else {
+      this.energy=n;
+    }
   public int getSpecialMax(){
     return maxEnergy;
   }
@@ -28,9 +31,9 @@ public class Charizard extends Adventurer{
   //hurt or hinder the target adventurer
   //3-5 dmg
   public String attack(Adventurer other){
-    int damage= (int)(Math.random()*3)+3;
+    int damage= (int)(Math.random() * 1.15 * 90);
     other.applyDamage(damage);
-    restoreSpecial(1);
+    restoreSpecial(damage);
     return "";
   }
 
