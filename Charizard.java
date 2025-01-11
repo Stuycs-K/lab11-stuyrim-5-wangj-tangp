@@ -1,12 +1,14 @@
 import java.util.Random;
 public class Charizard extends Adventurer{
   private int HP,maxHP,energy,maxEnergy;
+  private double dmgBoost;
   private boolean burn, sleep, sun, leechEnemy, leechSelf, hyper;
   public Charizard(){
-    this.HP=350;
-    this.maxHP=350;
+    this.HP=250;
+    this.maxHP=250;
     this.energy=100;
     this.maxEnergy=100;
+    this.dmgBoost=1;
   }
   public String getSpecialName(){
     return "Blast Burn";
@@ -21,6 +23,7 @@ public class Charizard extends Adventurer{
     else {
       this.energy=n;
     }
+  }
   public int getSpecialMax(){
     return maxEnergy;
   }
@@ -31,9 +34,9 @@ public class Charizard extends Adventurer{
   //hurt or hinder the target adventurer
   //3-5 dmg
   public String attack(Adventurer other){
-    int damage= (int)(Math.random() * 1.15 * 90);
-    other.applyDamage(damage);
-    restoreSpecial(damage);
+    double damage= Math.random() * 1.15 * 90;
+    other.applyDamage(damage*dmgBoost);
+    restoreSpecial(30);
     return "";
   }
 
@@ -46,8 +49,8 @@ public class Charizard extends Adventurer{
 
   //heall or buff self
   public String support(){
-    setHP(getHP()+1);
-    restoreSpecial(3);
+    setHP(getHP()+125);
+    restoreSpecial(30);
     return "";
   }
 
@@ -62,5 +65,10 @@ public class Charizard extends Adventurer{
       return ""+attack(other);
     }
     return "";
+  }
+
+  public String mega(){
+    dmgBoost=1.5;
+    return this+" used Dragon Dance. "+this+ "'s damage is increased by 1.5x.";
   }
 }
