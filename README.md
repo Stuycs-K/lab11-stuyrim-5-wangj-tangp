@@ -21,27 +21,27 @@ Make a clear list of features that work/dont work
 
 1/10 Created Blastoise and Charizard classes and pushed to repository.
 1/10 Added Venasaur class to repository.
-1/11
+1/12 Finished movesets (implementation) for both Blastoise and Charizard classes.
 
 ## Charizard
 -250 HP
 |Move Type|Name|Effect|
 |---|---|---|
-|Special|Blast Burn|Deals 150 damage|
-|Attack|Flamethrower|Deals 90 damage|
-|Support|Will-o-Wisp|Reduce damage taken by 1/2 and does 1/8 max hp per turn|
-|Self-support|Roost|Heals 1/2 max hp|
-|Mega|Dragon Dance|Increases attack damage by 1.5x|
+|Special|Blast Burn|Deals 150 damage :white_check_mark: |
+|Attack|Flamethrower|Deals 90 damage :white_check_mark: |
+|Support|Will-o-Wisp|Reduce damage taken by 1/2 and does 1/8 max hp per turn :white_check_mark: |
+|Self-support|Roost|Heals 1/2 max hp :white_check_mark: |
+|Mega|Dragon Dance|Increases attack damage by 1.5x :question: |
 
 ## Blastoise
 -300 HP
 |Move Type|Name|Effect|
 |---|---|---|
-|Special|Water Spout|Deals 150 damage|
-|Attack|Hydro Pump|Deals 110 damage|
-|Support|Haze|Clears all stat effects|
-|Self-support|Shell Smash|Increases attack damage by 2x for 2 turns and heals for .67x hp|
-|Mega|Hyper Beam|Increases Defense|
+|Special|Water Spout|Deals 150 damage :white_check_mark: |
+|Attack|Hydro Pump|Deals 110 damage :white_check_mark: |
+|Support|Haze|Clears all stat effects :white_check_mark: |
+|Self-support|Shell Smash|Increases attack damage by 2x for 2 turns and heals for .67x hp :white_check_mark: |
+|Mega|Hyper Beam|Increases Defense :question: |
 
 ## Venusaur
 -350 HP
