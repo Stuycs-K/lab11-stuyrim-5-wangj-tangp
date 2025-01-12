@@ -1,80 +1,65 @@
 public class Venusaur extends Adventurer{
-  int caffeine, caffeineMax;
-  String preferredLanguage;
+  private int HP,maxHP,energy,maxEnergy;
+  private double dmgBoost;
 
   /*the other constructors ultimately call the constructor
   *with all parameters.*/
-  public Venusaur(String name, int hp, String language){
-    super(name,hp);
-    caffeineMax = 12;
-    caffeine = caffeineMax/2;
-    preferredLanguage = language;
-  }
-
-  public Venusaur(String name, int hp){
-    this(name,hp,"c++");
-  }
-
-  public Venusaur(String name){
-    this(name,24);
-  }
-
   public Venusaur(){
-    this("Carmack");
+    this.HP=350;
+    this.maxHP=350;
+    this.energy=0;
+    this.maxEnergy=200;
   }
 
   /*The next 8 methods are all required because they are abstract:*/
   public String getSpecialName(){
-    return "caffeine";
+    return "Solar Beam";
   }
 
   public int getSpecial(){
-    return caffeine;
+    return energy;
   }
 
   public void setSpecial(int n){
-    caffeine = n;
+    if(n>this.getSpecialMax()){
+      this.energy=getSpecialMax();
+    }else this.energy=n;
   }
 
   public int getSpecialMax(){
-    return caffeineMax;
+    return maxEnergy;
   }
 
-  /*Deal 2-7 damage to opponent, restores 2 caffeine*/
   public String attack(Adventurer other){
-    int damage = (int)(Math.random()*6)+2;
-    other.applyDamage(damage);
-    restoreSpecial(2);
-    return this + " attacked "+ other + " and dealt "+ damage +
-    " points of damage. They then take a sip of their coffee.";
+    int damage= (int)(Math.random() * 1.15 * 70);
+    other.applyDamage(damage*dmgBoost);
+    restoreSpecial(30);
+    int currentHP = getHP();
+    setHP(getHP() + damage);
+    int finalHP = getHP();
+    return "Venusaur used Giga Drain, dealing " + damage + "damage." + "Venusuar also restored " + Integer.toString(finalHP - currentHP);
   }
 
-  /*Deal 3-12 damage to opponent, only if caffeine is high enough.
-  *Reduces caffeine by 8.
-  */
   public String specialAttack(Adventurer other){
-    if(getSpecial() >= 8){
-      setSpecial(getSpecial()-8);
-      int damage = (int)(Math.random()*5+Math.random()*5)+3;
+    int damage = (int)(Math.random() * 1.15 * 140);
+    if(getSpecial()>=60){
       other.applyDamage(damage);
-      return this + " used their "+preferredLanguage+
-      " skills to hack the matrix. "+
-      " This glitched out "+other+" dealing "+ damage +" points of damage.";
+      setSpecial(getSpecial()-60);
     }else{
-      return "Not enough caffeine to use the ultimate code. Instead "+attack(other);
+      return "Venusaur tried to use Solar Beam but didnt have enough energy. Instead, " + attack(other);
     }
+    return "Venusaur used Solar Beam, dealing " + damage + "damage.";
+  }
 
-  }
-  /*Restores 5 special to other*/
   public String support(Adventurer other){
-    return "Gives a coffee to "+other+" and restores "
-    + other.restoreSpecial(5)+" "+other.getSpecialName();
+    other.applyStatus("sleep");
+    restoreSpecial(30);
+    return "Venusaur used Sleep Powder. " + other.getName() + "is now asleep.";
   }
-  /*Restores 6 special and 1 hp to self.*/
+
   public String support(){
-    int hp = 1;
-    setHP(getHP()+hp);
-    return this+" drinks a coffee to restores "+restoreSpecial(6)+" "
-    + getSpecialName()+ " and "+hp+" HP";
+    restoreSpecial(30);
+    dmgBoost = 1.5;
+    return "Venusaur used Sunny Day. It's damage is now multiplied by 1.5x.";
   }
 }

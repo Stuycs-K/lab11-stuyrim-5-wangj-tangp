@@ -1,4 +1,3 @@
-import java.util.Random;
 public class Boss extends Adventurer{
   private int HP,maxHP,energy,maxEnergy;
   public Boss(){

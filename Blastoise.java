@@ -1,4 +1,3 @@
-import java.util.Random;
 public class Blastoise extends Adventurer{
   private int HP,maxHP,energy,maxEnergy;
   private double dmgBoost;
@@ -29,10 +28,10 @@ public class Blastoise extends Adventurer{
   //hurt or hinder the target adventurer
   //3-5 dmg
   public String attack(Adventurer other){
-    double damage= Math.random() * 1.15 * 110;
+    int damage= (int)(Math.random() * 1.15 * 110);
     other.applyDamage(damage*dmgBoost);
     restoreSpecial(10);
-    return this+" used Hydro Pump. "+other+" took "+damage+" damage.";
+    return "Blastoise used Hydro Pump, dealing " + damage + "damage.";
   }
 
   //heall or buff the target adventurer
@@ -40,29 +39,29 @@ public class Blastoise extends Adventurer{
     other.restoreSpecial(30);
     this.applyStatus("haze");
     other.applyStatus("haze");
-    return this+" used Haze. All effects are cleared.";
+    return "Blastoise used Haze. All effects are cleared.";
   }
 
   //heall or buff self
   public String support(){
-    if(getHP()+getmaxHP()*.67>getmaxHP()){
-      setHP(getmaxHP());
-    }else setHP(getHP()+(int)(getmaxHP()*.67));
+    int currentHP = getHP();
+    setHP((currentHP/2));
+    int finalHP = getHP();
     restoreSpecial(30);
     dmgBoost=2;
-    return this+" used Shell Smash. "+this+" healed .67x hp and increased damage by 2x.";
+    return "Blastoise used Shell Smash. Blastoise lost " + Integer.toString(finalHP - currentHP) +  "and increased damage by 2x.";
   }
 
   //hurt or hinder the target adventurer, consume some special resource
   //3-8 dmg
   public String specialAttack(Adventurer other){
-    double damage= Math.random() * 1.15 * 150;
+    int damage= (int)(Math.random() * 1.15 * 150);
     if(getSpecial()>=100){
       other.applyDamage(damage);
       setSpecial(getSpecial()-100);
     }else{
-      return this+" tried to used but didnt have enough Energy. Instead, "+attack(other);
+      return "Blastoise tried to use Water Spout but didnt have enough energy. Instead, " + attack(other);
     }
-    return this+" used Water Spout. "+other+" took "+damage+" damage.";
+    return "Blastoise used Water Spout, dealing " + damage + "damage.";
   }
 }

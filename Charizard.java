@@ -1,11 +1,10 @@
-import java.util.Random;
 public class Charizard extends Adventurer{
 
   public static void main(String[] args) {
     Charizard test = new Charizard();
   }
 
-  
+
   private int HP,maxHP,energy,maxEnergy;
   private double dmgBoost;
   public Charizard(){
@@ -39,17 +38,17 @@ public class Charizard extends Adventurer{
   //hurt or hinder the target adventurer
   //3-5 dmg
   public String attack(Adventurer other){
-    double damage= (int)(Math.random() * 1.15 * 90);
+    int damage= (int)(Math.random() * 1.15 * 90);
     other.applyDamage(damage*dmgBoost);
     restoreSpecial(30);
-    return "Charizard used flamethrower, dealing " + damage + "damage.";
+    return "Charizard used Flamethrower, dealing " + damage + "damage.";
   }
 
   //heall or buff the target adventurer
   public String support(Adventurer other){
     other.applyStatus("burn");
     restoreSpecial(30);
-    return "Used Will-o-Wisp. " + other.getName() + "is now burned.";
+    return "Charizard used Will-o-Wisp. " + other.getName() + "is now burned.";
   }
 
   //heall or buff self
@@ -68,7 +67,7 @@ public class Charizard extends Adventurer{
       other.applyDamage(damage);
       setSpecial(getSpecial()-60);
     }else{
-      return "" + attack(other);
+      return "Charizard tried to use Blast Burn but didnt have enough energy. Instead, " + attack(other);
     }
     return "Charizard used Blast Burn, dealing " + damage + "damage.";
   }

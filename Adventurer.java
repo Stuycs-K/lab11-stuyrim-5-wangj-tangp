@@ -1,8 +1,7 @@
-import java.util.Random;
 public abstract class Adventurer{
   private String name;
   private int HP,maxHP;
-  private boolean burn, sleep, sun, leechEnemy, leechSelf, hyper;
+  private boolean burn, sleep, leechEnemy, leechSelf, hyper;
 
   //Abstract methods are meant to be implemented in child classes.
   /*

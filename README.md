@@ -40,15 +40,15 @@ Make a clear list of features that work/dont work
 |Special|Water Spout|Deals 150 damage :white_check_mark: |
 |Attack|Hydro Pump|Deals 110 damage :white_check_mark: |
 |Support|Haze|Clears all stat effects :white_check_mark: |
-|Self-support|Shell Smash|Increases attack damage by 2x for 2 turns and heals for .67x hp :white_check_mark: |
+|Self-support|Shell Smash|Increases attack damage by 2x and halves its current HP :white_check_mark: |
 |Mega|Hyper Beam|Increases Defense :question: |
 
 ## Venusaur
 -350 HP
 |Move Type|Name|Effect|
 |---|---|---|
-|Special|Solar Beam|Deals 140 damage|
-|Attack|Giga Drain|Deals 70 damage|
-|Support|Sleep Powder|Skips 2 enemy turns|
-|Self-support|Sunny Day|Increases attack damage by 1.5x for 3 turns|
-|Mega|Leech Seed|Resistance to Fire|
+|Special|Solar Beam|Deals 140 damage :white_check_mark: |
+|Attack|Giga Drain|Deals 70 damage :white_check_mark: |
+|Support|Sleep Powder|Skips the target's turn, with a 50% chance to "wake up" and remove sleep condition every turn. :question: |
+|Self-support|Sunny Day|Increases attack damage by 1.5x :white_check_mark: |
+|Mega|Leech Seed|Resistance to Fire :question: |
