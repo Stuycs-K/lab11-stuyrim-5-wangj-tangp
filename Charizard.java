@@ -2,7 +2,6 @@ import java.util.Random;
 public class Charizard extends Adventurer{
   private int HP,maxHP,energy,maxEnergy;
   private double dmgBoost;
-  private boolean burn, sleep, sun, leechEnemy, leechSelf, hyper;
   public Charizard(){
     this.HP=250;
     this.maxHP=250;
@@ -42,8 +41,8 @@ public class Charizard extends Adventurer{
 
   //heall or buff the target adventurer
   public String support(Adventurer other){
-    other.setHP(other.getHP()+1);
-    other.restoreSpecial(3);
+    other.applyStatus(burn);
+    restoreSpecial(3);
     return "";
   }
 
