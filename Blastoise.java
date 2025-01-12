@@ -1,7 +1,7 @@
 import java.util.Random;
 public class Blastoise extends Adventurer{
   private int HP,maxHP,energy,maxEnergy;
-  private boolean burn,sleep,sun,leechEnemy,leechSelf,hyper;
+  private double dmgBoost;
   public Blastoise(){
     this.HP=300;
     this.maxHP=300;
@@ -29,9 +29,8 @@ public class Blastoise extends Adventurer{
   //hurt or hinder the target adventurer
   //3-5 dmg
   public String attack(Adventurer other){
-    double damageMult= (Math.random()*.15)+.85;
-    int damage= (int)(110*damageMult);
-    other.applyDamage(damage);
+    double damage= Math.random() * 1.15 * 110;
+    other.applyDamage(damage*dmgBoost);
     restoreSpecial(10);
     return this+" used Hydro Pump. "+other+" took "+damage+" damage.";
   }
@@ -39,28 +38,26 @@ public class Blastoise extends Adventurer{
   //heall or buff the target adventurer
   public String support(Adventurer other){
     other.restoreSpecial(30);
-    burn=false;
-    sleep=false;
-    sun=false;
-    leechEnemy=false;
-    leechSelf=false;
-    hyper=false;
+    this.applyStatus("haze");
+    other.applyStatus("haze");
     return this+" used Haze. All effects are cleared.";
   }
 
   //heall or buff self
   public String support(){
-    setHP(getHP()+1);
+    if(getHP()+getmaxHP()*.67>getmaxHP()){
+      setHP(getmaxHP());
+    }else setHP(getHP()+(int)(getmaxHP()*.67));
     restoreSpecial(30);
-    return this+" used Shell Smash. ";
+    dmgBoost=2;
+    return this+" used Shell Smash. "+this+" healed .67x hp and increased damage by 2x.";
   }
 
   //hurt or hinder the target adventurer, consume some special resource
   //3-8 dmg
   public String specialAttack(Adventurer other){
+    double damage= Math.random() * 1.15 * 150;
     if(getSpecial()>=100){
-      double damageMult= (Math.random()*.15)+.85;
-      int damage= (int)(150*damageMult);
       other.applyDamage(damage);
       setSpecial(getSpecial()-100);
     }else{
