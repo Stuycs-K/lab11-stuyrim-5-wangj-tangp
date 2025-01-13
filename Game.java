@@ -26,10 +26,6 @@ public class Game{
     for (int row= 1;row<=80;row++) {
         Text.go(row,1);
         System.out.print("|");
-        Text.go(row,26);
-        System.out.print("|");
-        Text.go(row,54);
-        System.out.print("|");
         Text.go(row,80);
         System.out.print("|");
     }
@@ -41,7 +37,8 @@ public class Game{
   //use this method in your other text drawing methods to make things simpler.
   public static void drawText(String s,int startRow, int startCol){
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    
+    Text.go(startRow,startCol);
+    System.out.print(s);
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
   }
 
@@ -57,7 +54,7 @@ public class Game{
   */
   public static void TextBox(int row, int col, int width, int height, String text){
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    //YOUR CODE HERE
+
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
   }
 
@@ -67,7 +64,12 @@ public class Game{
     //return a random adventurer (choose between all available subclasses)
     //feel free to overload this method to allow specific names/stats.
     public static Adventurer createRandomAdventurer(){
-      return new CodeWarrior("Bob"+(int)(Math.random()*100));
+      int rand=(int)(Math.random()*3);
+      if(rand==0){
+        return new Charizard();
+      }else if(rand==1){
+        return new Blastoise();
+      }else return new Venusaur();
     }
 
     /*Display a List of 2-4 adventurers on the rows row through row+3 (4 rows max)
@@ -107,7 +109,6 @@ public class Game{
   public static void drawScreen(){
 
     drawBackground();
-
     //draw player party
 
     //draw enemy party
