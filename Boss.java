@@ -6,14 +6,17 @@ public class Boss extends Adventurer{
     if (decider < 0.33){
       Adventurer Boss = new Blastoise();
       Boss.setDmgBoost(1.2);
+      Boss.setHP(Boss.getHP*2);
     }
     else if (decider < 0.66){
       Adventurer Boss = new Charizard();
       Boss.setDmgBoost(1.2);
+      Boss.setHP(Boss.getHP*2);
     }
     else{
       Adventurer Boss = new Venusaur();
       Boss.setDmgBoost(1.2);
+      Boss.setHP(Boss.getHP*2);
     }
 
   }

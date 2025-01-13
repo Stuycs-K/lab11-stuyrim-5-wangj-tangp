@@ -27,9 +27,9 @@ Make a clear list of features that work/dont work
 -250 HP
 |Move Type|Name|Effect|
 |---|---|---|
-|Special|Blast Burn|Deals 150 damage :white_check_mark: |
-|Attack|Flamethrower|Deals 90 damage :white_check_mark: |
-|Support|Will-o-Wisp|Reduce damage taken by 1/2 and does 1/8 max hp per turn :white_check_mark: |
+|Special|Blast Burn|Has 150 BP :white_check_mark: |
+|Attack|Flamethrower|Has 90 BP :white_check_mark: |
+|Support|Will-o-Wisp|Reduce damage done by the opponent by 1/2 and does 1/8 max hp of enemy per turn :white_check_mark: |
 |Self-support|Roost|Heals 1/2 max hp :white_check_mark: |
 |Mega|Dragon Dance|Increases attack damage by 1.5x :question: |
 
@@ -37,8 +37,8 @@ Make a clear list of features that work/dont work
 -300 HP
 |Move Type|Name|Effect|
 |---|---|---|
-|Special|Water Spout|Deals 150 damage :white_check_mark: |
-|Attack|Hydro Pump|Deals 110 damage :white_check_mark: |
+|Special|Water Spout|Has 150 BP :white_check_mark: |
+|Attack|Hydro Pump|Has 110 BP :white_check_mark: |
 |Support|Haze|Clears all stat effects :white_check_mark: |
 |Self-support|Shell Smash|Increases attack damage by 2x and halves its current HP :white_check_mark: |
 |Mega|Hyper Beam|Increases Defense :question: |
@@ -47,8 +47,41 @@ Make a clear list of features that work/dont work
 -350 HP
 |Move Type|Name|Effect|
 |---|---|---|
-|Special|Solar Beam|Deals 140 damage :white_check_mark: |
-|Attack|Giga Drain|Deals 70 damage :white_check_mark: |
+|Special|Solar Beam|Has 140 BP :white_check_mark: |
+|Attack|Giga Drain|Has 70 BP :white_check_mark: |
+|Support|Sleep Powder|Skips the target's turn, with a 50% chance to "wake up" and remove sleep condition every turn. :question: |
+|Self-support|Sunny Day|Increases attack damage by 1.5x :white_check_mark: |
+|Mega|Leech Seed|Resistance to Fire :question: |
+
+## Boss
+-Can be any of the three playable characters, with a 2x HP boost and a x1.2 BP boost. The possible moves are as follows:
+
+If Mega-Charizard-X:
+-500HP
+|Move Type|Name|Effect|
+|---|---|---|
+|Special|Blast Burn|Has 150 BP :white_check_mark: |
+|Attack|Flamethrower|Has 90 BP :white_check_mark: |
+|Support|Will-o-Wisp|Reduce damage done by the opponent by 1/2 and does 1/8 max hp of enemy per turn :white_check_mark: |
+|Self-support|Roost|Heals 1/2 max hp :white_check_mark: |
+|Mega|Dragon Dance|Increases attack damage by 1.5x :question: |
+
+If Mega-Blastoise:
+-600HP
+|Move Type|Name|Effect|
+|---|---|---|
+|Special|Water Spout|Has 150 BP :white_check_mark: |
+|Attack|Hydro Pump|Has 110 BP :white_check_mark: |
+|Support|Haze|Clears all stat effects :white_check_mark: |
+|Self-support|Shell Smash|Increases attack damage by 2x and halves its current HP :white_check_mark: |
+|Mega|Hyper Beam|Increases Defense :question: |
+
+If Mega-Venusaur:
+-700 HP
+|Move Type|Name|Effect|
+|---|---|---|
+|Special|Solar Beam|Has 140 BP :white_check_mark: |
+|Attack|Giga Drain|Has 70 BP :white_check_mark: |
 |Support|Sleep Powder|Skips the target's turn, with a 50% chance to "wake up" and remove sleep condition every turn. :question: |
 |Self-support|Sunny Day|Increases attack damage by 1.5x :white_check_mark: |
 |Mega|Leech Seed|Resistance to Fire :question: |
