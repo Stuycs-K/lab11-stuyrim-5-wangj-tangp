@@ -2,10 +2,12 @@ public class Blastoise extends Adventurer{
   private int HP,maxHP,energy,maxEnergy;
   private double dmgBoost;
   public Blastoise(){
+    this.setName("Blastoise");
     this.HP=300;
     this.maxHP=300;
     this.energy=50;
     this.maxEnergy=100;
+    this.dmgBoost = 1;
   }
   public String getSpecialName(){
     return "Water Spout";
@@ -16,7 +18,10 @@ public class Blastoise extends Adventurer{
   public void setSpecial(int n){
     if(n>this.getSpecialMax()){
       this.energy=getSpecialMax();
-    }else this.energy=n;
+    }
+    else {
+      this.energy=n;
+    }
   }
   public int getSpecialMax(){
     return maxEnergy;
@@ -63,5 +68,9 @@ public class Blastoise extends Adventurer{
       return "Blastoise tried to use Water Spout but didnt have enough energy. Instead, " + attack(other);
     }
     return "Blastoise used Water Spout, dealing " + damage + "damage.";
+  }
+
+  public void setDmgBoost(int boost){
+    dmgBoost = boost;
   }
 }

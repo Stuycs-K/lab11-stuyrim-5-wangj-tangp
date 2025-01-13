@@ -5,10 +5,12 @@ public class Venusaur extends Adventurer{
   /*the other constructors ultimately call the constructor
   *with all parameters.*/
   public Venusaur(){
+    this.setName("Venusaur");
     this.HP=350;
     this.maxHP=350;
     this.energy=0;
     this.maxEnergy=200;
+    this.dmgBoost=1;
   }
 
   /*The next 8 methods are all required because they are abstract:*/
@@ -23,7 +25,10 @@ public class Venusaur extends Adventurer{
   public void setSpecial(int n){
     if(n>this.getSpecialMax()){
       this.energy=getSpecialMax();
-    }else this.energy=n;
+    }
+    else {
+      this.energy=n;
+    }
   }
 
   public int getSpecialMax(){
@@ -61,5 +66,9 @@ public class Venusaur extends Adventurer{
     restoreSpecial(30);
     dmgBoost = 1.5;
     return "Venusaur used Sunny Day. It's damage is now multiplied by 1.5x.";
+  }
+
+  public void setDmgBoost(int boost){
+    dmgBoost = boost;
   }
 }

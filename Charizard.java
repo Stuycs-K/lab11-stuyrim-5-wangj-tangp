@@ -8,6 +8,7 @@ public class Charizard extends Adventurer{
   private int HP,maxHP,energy,maxEnergy;
   private double dmgBoost;
   public Charizard(){
+    this.setName("Charizard");
     this.HP=250;
     this.maxHP=250;
     this.energy=100;
@@ -75,5 +76,9 @@ public class Charizard extends Adventurer{
   public String mega(){
     dmgBoost=1.5;
     return this+" used Dragon Dance. "+this+ "'s damage is increased by 1.5x.";
+  }
+
+  public void setDmgBoost(int boost){
+    dmgBoost = boost;
   }
 }
