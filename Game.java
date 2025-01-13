@@ -13,7 +13,26 @@ public class Game{
   //Do not write over the blank areas where text will appear or parties will appear.
   public static void drawBackground(){
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    //YOUR CODE HERE
+    for(int col= 1;col<=80;col++) {
+        Text.go(1,col);
+        System.out.print("-");
+        Text.go(6,col);
+        System.out.print("-");
+        Text.go(24,col);
+        System.out.print("-");
+        Text.go(30,col);
+        System.out.print("-");
+    }
+    for (int row= 1;row<=80;row++) {
+        Text.go(row,1);
+        System.out.print("|");
+        Text.go(row,26);
+        System.out.print("|");
+        Text.go(row,54);
+        System.out.print("|");
+        Text.go(row,80);
+        System.out.print("|");
+    }
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
   }
 
@@ -22,7 +41,7 @@ public class Game{
   //use this method in your other text drawing methods to make things simpler.
   public static void drawText(String s,int startRow, int startCol){
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    //YOUR CODE HERE
+    
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
   }
 
