@@ -54,7 +54,7 @@ Make a clear list of features that work/dont work
 |Mega|Leech Seed|Resistance to Fire :question: |
 
 ## Boss
--Can be any of the three playable characters, with a 2x HP boost and a x1.2 BP boost. The possible moves are as follows:
+-Can be any of the three playable characters, with a 2x HP boost and a x1.2 damage boost. The possible moves are as follows:
 
 ### If Mega-Charizard-X:
 -500HP
