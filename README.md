@@ -56,7 +56,7 @@ Make a clear list of features that work/dont work
 ## Boss
 -Can be any of the three playable characters, with a 2x HP boost and a x1.2 BP boost. The possible moves are as follows:
 
-If Mega-Charizard-X:
+### If Mega-Charizard-X:
 -500HP
 |Move Type|Name|Effect|
 |---|---|---|
@@ -66,7 +66,7 @@ If Mega-Charizard-X:
 |Self-support|Roost|Heals 1/2 max hp :white_check_mark: |
 |Mega|Dragon Dance|Increases attack damage by 1.5x :question: |
 
-If Mega-Blastoise:
+### If Mega-Blastoise:
 -600HP
 |Move Type|Name|Effect|
 |---|---|---|
@@ -76,7 +76,7 @@ If Mega-Blastoise:
 |Self-support|Shell Smash|Increases attack damage by 2x and halves its current HP :white_check_mark: |
 |Mega|Hyper Beam|Increases Defense :question: |
 
-If Mega-Venusaur:
+### If Mega-Venusaur:
 -700 HP
 |Move Type|Name|Effect|
 |---|---|---|
