@@ -51,7 +51,6 @@ public class Boss extends Adventurer{
   }
 
   //hurt or hinder the target adventurer, consume some special resource
-  //3-8 dmg
   public String specialAttack(Adventurer other){
     return super.specialAttack(other);
   }
