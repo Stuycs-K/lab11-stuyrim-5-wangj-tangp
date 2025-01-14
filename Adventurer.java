@@ -1,7 +1,9 @@
 public abstract class Adventurer{
   private String name;
   private int HP,maxHP;
-  private boolean burn, sleep, leechEnemy, leechSelf, hyper;
+  private boolean burn, sleep, leechEnemy, leechSelf, hyper, toxic;
+  private double dmgBoost;
+
 
   //Abstract methods are meant to be implemented in child classes.
   /*
@@ -145,5 +147,11 @@ public abstract class Adventurer{
     else if (condition.equals("hyper")){
       hyper = true;
     }
+    else if (condition.equals("toxic")){
+      toxic = true;
+    }
+  }
+  public void setDmgBoost(int boost){
+    dmgBoost = boost;
   }
 }

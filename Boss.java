@@ -3,58 +3,72 @@ public class Boss extends Adventurer{
   private double dmgBoost;
   public Boss(){
     double decider = Math.random();
-    if (decider < 0.33){
-      Adventurer Boss = new Blastoise();
-      Boss.setDmgBoost(1.2);
-      Boss.setHP(Boss.getHP*2);
-    }
-    else if (decider < 0.66){
-      Adventurer Boss = new Charizard();
-      Boss.setDmgBoost(1.2);
-      Boss.setHP(Boss.getHP*2);
-    }
-    else{
-      Adventurer Boss = new Venusaur();
-      Boss.setDmgBoost(1.2);
-      Boss.setHP(Boss.getHP*2);
+    this.setName("Mewtwo");
+    this.HP=1000;
+    this.maxHP=1000;
+    this.energy=200;
+    this.maxEnergy=200;
+    this.dmgBoost=1;
     }
 
-  }
+  /*The next 8 methods are all required because they are abstract:*/
   public String getSpecialName(){
-    return super.getSpecialName();
+    return "Psystrike";
   }
+
   public int getSpecial(){
-    return super.getSpecial();
+    return energy;
   }
+
   public void setSpecial(int n){
-    return super.setSpecial(n);
+    if(n>this.getSpecialMax()){
+      this.energy=getSpecialMax();
+    }
+    else {
+      this.energy=n;
+    }
   }
 
   public int getSpecialMax(){
-    return super.getSpecialMax();
+    return maxEnergy;
   }
-  /*
-    all adventurers must have a way to attack enemies and
-    support their allys
-  */
-  //hurt or hinder the target adventurer
-  //3-5 dmg
+
   public String attack(Adventurer other){
-    return super.attack(other);
+    int damage= (int)(Math.random() * 1.15 * 140);
+    other.applyDamage(damage*dmgBoost);
+    restoreSpecial(60);
+    int currentHP = getHP();
+    setHP(getHP() + damage);
+    int finalHP = getHP();
+    return "Mewtwo used Aura Sphere, dealing " + damage + "damage.";
   }
 
-  //heall or buff the target adventurer
-  public String support(Adventurer other){
-    return super.support(other);
-  }
-
-  //heall or buff self
-  public String support(){
-    return super.support();
-  }
-
-  //hurt or hinder the target adventurer, consume some special resource
   public String specialAttack(Adventurer other){
-    return super.specialAttack(other);
+    int damage = (int)(Math.random() * 1.15 * 280);
+    if(getSpecial()>=60){
+      other.applyDamage(damage);
+      setSpecial(getSpecial()-60);
+    }else{
+      return "Mewtwo tried to use Psystrike but didnt have enough energy. Instead, " + attack(other);
+    }
+    return "Mewtwo used Psystrike, dealing " + damage + "damage.";
+  }
+
+  public String support(Adventurer other){
+    other.applyStatus("toxic");
+    restoreSpecial(30);
+    return "Mewtwo used Toxic. " + other.getName() + "is now asleep.";
+  }
+
+  public String support(){
+    int currentHP = getHP();
+    setHP(getHP()*2);
+    int finalHP = getHP();
+    restoreSpecial(30);
+    return "Mewtwo used Amnesia, restoring " + Integer.toString((finalHP-currentHP)) + "HP.";
+  }
+
+  public void setDmgBoost(int boost){
+    dmgBoost = boost;
   }
 }
