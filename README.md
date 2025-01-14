@@ -19,9 +19,16 @@ Make a clear list of features that work/dont work
 ## Adventurer Subclasses
 
 
-1/10 Created Blastoise and Charizard classes and pushed to repository.
-1/10 Added Venasaur class to repository.
-1/12 Finished movesets (implementation) for both Blastoise and Charizard classes.
+- 1/10 Created Blastoise and Charizard classes and pushed to repository.
+- 1/10 Added Venasaur class to repository.
+- 1/12 Finished movesets (implementation) for both Blastoise and Charizard classes.
+- 1/13 Worked on terminal, created border and generate random enemies.
+- 1/14 Changed Boss class and continued working on terminal.
+
+Gameplay notes:
+- Cannot heal above max hp.
+- Base Power(BP) is the minimum damage dealt. Every attack has a random multiplier from 1-1.15x every attack.
+
 
 ## Charizard
 -250 HP
