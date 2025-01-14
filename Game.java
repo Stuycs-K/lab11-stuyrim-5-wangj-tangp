@@ -235,14 +235,16 @@ public class Game{
         //enemy attacks a randomly chosen person with a randomly chosen attack.z`
         //Enemy action choices go here!
         /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-        for(int i=0;i<enemies.size();i++){
-          if(enemies.get(i).getHP()<.5*enemies.get(i).getmaxHP()){
+        /*  if(enemies.get(whichOpponent).getSpecial()>=enemies.get(whichOpponent).getSpecialMax()){
+            enemies.get(whichOpponent).specialAttack();
+          }else if(enemies.get(whichOpponent).getHP()<.5*enemies.get(whichOpponent).getmaxHP()){
             int randSupport=(int)(Math.random()*2);
             if(randSupport==0){
-              enemies.get(i).support();
-            }else enemies.get(i).support(enemies.get(i+1));  
-          }
-        }
+              enemies.get(whichOpponent).support();
+            }else enemies.get(whichOpponent).support(enemies.get(Math.random()*enemies.size()));
+          }else enemies.get(whichOpponent).attack();
+          idk yet
+        */
 
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
