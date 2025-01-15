@@ -108,7 +108,30 @@ public class Game{
           System.out.print(" ");
         }
       }
-
+      System.out.println("");
+      int HPLength = 0;
+      for (int i = 0; i < party.size(); i++){
+        HPLength += Integer.toString(party.get(i).getHP()).length();
+      }
+      Text.go(2,3);
+      for (int i = 0; i < party.size(); i++){
+        System.out.print(party.get(i).getHP());
+        for (int j = 0; j < (80-HPLength)/party.size()-2; j++){
+          System.out.print(" ");
+        }
+      }
+      System.out.println("");
+      int specialLength = 0;
+      for (int i = 0; i < party.size(); i++){
+        specialLength += Integer.toString(party.get(i).getSpecial()).length();
+      }
+      Text.go(2,4);
+      for (int i = 0; i < party.size(); i++){
+        System.out.print(party.get(i).getSpecial());
+        for (int j = 0; j < (80-specialLength)/party.size()-2; j++){
+          System.out.print(" ");
+        }
+      }
       /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
     }
 
