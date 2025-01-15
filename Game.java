@@ -97,7 +97,18 @@ public class Game{
     public static void drawParty(ArrayList<Adventurer> party,int startRow){
 
       /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-      //YOUR CODE HERE
+      int nameLength = 0;
+      for (int i = 0; i < party.size(); i++){
+        nameLength += party.get(i).getName().length();
+      }
+      Text.go(2,2);
+      for (int i = 0; i < party.size(); i++){
+        System.out.print(party.get(i).getName());
+        for (int j = 0; j < (80-nameLength)/party.size()-2; j++){
+          System.out.println(" ");
+        }
+      }
+
       /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
     }
 
@@ -178,7 +189,9 @@ public class Game{
     //Make an ArrayList of Adventurers and add 2-4 Adventurers to it.
     ArrayList<Adventurer> party = new ArrayList<>();
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    //YOUR CODE HERE
+    party.add(new Charizard());
+    party.add(new Venusaur());
+    party.add(new Blastoise());
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
     boolean partyTurn = true;
