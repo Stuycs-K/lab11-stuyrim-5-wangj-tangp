@@ -54,7 +54,23 @@ public class Game{
   */
   public static void TextBox(int row, int col, int width, int height, String text){
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+    int currentRow = row;
+    int index = 0;
 
+    for (int i = 0; i < height; i++) {
+        String line = "";
+        for (int j = 0; j < width; j++) {
+            if (index < text.length()) {
+                line += text.charAt(index);
+                index++;
+            } else {
+                line += ' ';
+            }
+        }
+        Text.go(currentRow, col);
+        System.out.print(line);
+        currentRow++;
+    }
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
   }
 
