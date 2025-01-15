@@ -151,13 +151,13 @@ public class Game{
 
   public static String userInput(Scanner in){
       //Move cursor to prompt location
-
+      Text.go(32,2);
       //show cursor
-
+      Text.showCursor();
       String input = in.nextLine();
 
       //clear the text that was written
-
+      Text.hideCursor();
       return input;
   }
 
@@ -241,10 +241,10 @@ public class Game{
           //assume the value that follows su  is an integer.
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
           if (input.startsWith("su ")){
-            party.get(whichPlayer).support(input.substring(3));
+            party.get(whichPlayer).support(enemies.get(Integer.parseInt(input.substring(3))));
           }
           else{
-            party.get(whichPlayer).support(input.substring(8));
+            party.get(whichPlayer).support(enemies.get(Integer.parseInt(input.substring(8))));
           }
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
