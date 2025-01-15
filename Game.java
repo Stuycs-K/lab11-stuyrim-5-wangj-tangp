@@ -14,11 +14,11 @@ public class Game{
   public static void drawBackground(){
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
     for(int col= 1;col<=80;col++) {
-        Text.go(1,col);
+        Text.go(0,col);
         System.out.print("-");
         Text.go(6,col);
         System.out.print("-");
-        Text.go(24,col);
+        Text.go(25,col);
         System.out.print("-");
         Text.go(30,col);
         System.out.print("-");
@@ -105,7 +105,7 @@ public class Game{
       for (int i = 0; i < party.size(); i++){
         System.out.print(party.get(i).getName());
         for (int j = 0; j < (80-nameLength)/party.size()-2; j++){
-          System.out.println(" ");
+          System.out.print(" ");
         }
       }
 
@@ -139,7 +139,12 @@ public class Game{
 
     drawBackground();
     //draw player party
-
+    ArrayList<Adventurer> party = new ArrayList<>();
+    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+    party.add(new Charizard());
+    party.add(new Venusaur());
+    party.add(new Blastoise());
+    drawParty(party,3);
     //draw enemy party
 
   }
