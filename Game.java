@@ -253,16 +253,21 @@ public class Game{
         //enemy attacks a randomly chosen person with a randomly chosen attack.z`
         //Enemy action choices go here!
         /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-        /*  if(enemies.get(whichOpponent).getSpecial()>=enemies.get(whichOpponent).getSpecialMax()){
-            enemies.get(whichOpponent).specialAttack();
-          }else if(enemies.get(whichOpponent).getHP()<.5*enemies.get(whichOpponent).getmaxHP()){
-            int randSupport=(int)(Math.random()*2);
-            if(randSupport==0){
-              enemies.get(whichOpponent).support();
-            }else enemies.get(whichOpponent).support(enemies.get(Math.random()*enemies.size()));
-          }else enemies.get(whichOpponent).attack();
-          idk yet
-        */
+        Adventurer opponent= enemies.get(whichOpponent);
+          if(opponent.getSpecial()>=opponent.getSpecialMax()){
+            opponent.specialAttack(party.get((int)(Math.random()*party.size())));
+          }else {
+            if(opponent.getHP()<.5*opponent.getmaxHP()){
+              int randSupport=(int)(Math.random()*2);
+              if(randSupport==0){
+                opponent.support();
+            }else{
+              opponent.support(enemies.get((int)(Math.random()*enemies.size())));
+            }
+          }else{
+            opponent.attack(party.get((int)(Math.random()*party.size())));
+          }
+        }
 
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
