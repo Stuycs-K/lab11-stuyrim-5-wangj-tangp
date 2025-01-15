@@ -54,18 +54,15 @@ public class Game{
   */
   public static void TextBox(int row, int col, int width, int height, String text){
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    int currentRow = row;
-    int index = 0;
-
-    for (int i = 0; i < height; i++) {
-        String line = "";
-        for (int j = 0; j < width; j++) {
-            if (index < text.length()) {
-                line += text.charAt(index);
+    int currentRow=row;
+    int index=0;
+    for(int i=0;i<height;i++){
+        String line= "";
+        for(int j=0;j<width;j++){
+            if(index<text.length()){
+                line+= text.charAt(index);
                 index++;
-            } else {
-                line += ' ';
-            }
+            }else line+= "";
         }
         Text.go(currentRow, col);
         System.out.print(line);
@@ -112,7 +109,12 @@ public class Game{
     // under 25% : red
     // under 75% : yellow
     // otherwise : white
-    return output;
+    double percent = (double)hp/maxHP;
+    if(percent<0.25){
+        return Text.colorize(output,Text.RED);
+    }else if(percent<0.75){
+        return Text.colorize(output,Text.YELLOW);
+    }else return Text.colorize(output,Text.WHITE);
   }
 
 
