@@ -8,8 +8,7 @@ public class Charizard extends Adventurer{
   private int HP,maxHP,energy,maxEnergy;
   private double dmgBoost;
   public Charizard(){
-    this.setName("Charizard");
-    this.HP=250;
+    super("Charizard",250);
     this.maxHP=250;
     this.energy=0;
     this.maxEnergy=200;

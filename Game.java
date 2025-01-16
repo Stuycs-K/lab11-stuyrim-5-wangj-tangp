@@ -97,41 +97,41 @@ public class Game{
     public static void drawParty(ArrayList<Adventurer> party,int startRow){
 
       /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-      int nameLength = 0;
+      int nameLength = 15;
       for (int i = 0; i < party.size(); i++){
         nameLength += party.get(i).getName().length();
       }
       Text.go(2,2);
       for (int i = 0; i < party.size(); i++){
-        System.out.print(party.get(i).getName());
+        System.out.print("Name:" + party.get(i).getName());
         for (int j = 0; j < (80-nameLength)/party.size()-2; j++){
           System.out.print(" ");
         }
       }
       System.out.println("");
-      int HPLength = 0;
+      int HPLength = 9;
       for (int i = 0; i < party.size(); i++){
         HPLength += Integer.toString(party.get(i).getHP()).length();
       }
       Text.go(3,2);
       for (int i = 0; i < party.size(); i++){
-        System.out.print(party.get(i).getHP());
+        System.out.print("HP:" + party.get(i).getHP());
         for (int j = 0; j < (80-HPLength)/party.size()-2; j++){
           System.out.print(" ");
         }
       }
       System.out.println("");
-      int specialLength = 0;
+      int specialLength = 9;
       for (int i = 0; i < party.size(); i++){
         specialLength += Integer.toString(party.get(i).getSpecial()).length();
       }
       Text.go(4,2);
       for (int i = 0; i < party.size(); i++){
-        System.out.print(party.get(i).getSpecial());
+        System.out.print("SP:" + party.get(i).getSpecial());
         for (int j = 0; j < (80-specialLength)/party.size()-2; j++){
           System.out.print(" ");
         }
-      } 
+      }
       /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
     }
 

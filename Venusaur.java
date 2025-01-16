@@ -5,8 +5,7 @@ public class Venusaur extends Adventurer{
   /*the other constructors ultimately call the constructor
   *with all parameters.*/
   public Venusaur(){
-    this.setName("Venusaur");
-    this.HP=350;
+    super("Venusaur",350);
     this.maxHP=350;
     this.energy=0;
     this.maxEnergy=200;
