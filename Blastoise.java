@@ -5,8 +5,8 @@ public class Blastoise extends Adventurer{
     this.setName("Blastoise");
     this.HP=300;
     this.maxHP=300;
-    this.energy=50;
-    this.maxEnergy=100;
+    this.energy=0;
+    this.maxEnergy=200;
     this.dmgBoost = 1;
   }
   public String getSpecialName(){

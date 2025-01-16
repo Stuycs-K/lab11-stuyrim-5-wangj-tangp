@@ -11,8 +11,8 @@ public class Charizard extends Adventurer{
     this.setName("Charizard");
     this.HP=250;
     this.maxHP=250;
-    this.energy=100;
-    this.maxEnergy=100;
+    this.energy=0;
+    this.maxEnergy=200;
     this.dmgBoost=1;
   }
   public String getSpecialName(){

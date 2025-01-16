@@ -113,7 +113,7 @@ public class Game{
       for (int i = 0; i < party.size(); i++){
         HPLength += Integer.toString(party.get(i).getHP()).length();
       }
-      Text.go(2,3);
+      Text.go(3,2);
       for (int i = 0; i < party.size(); i++){
         System.out.print(party.get(i).getHP());
         for (int j = 0; j < (80-HPLength)/party.size()-2; j++){
@@ -125,13 +125,13 @@ public class Game{
       for (int i = 0; i < party.size(); i++){
         specialLength += Integer.toString(party.get(i).getSpecial()).length();
       }
-      Text.go(2,4);
+      Text.go(4,2);
       for (int i = 0; i < party.size(); i++){
         System.out.print(party.get(i).getSpecial());
         for (int j = 0; j < (80-specialLength)/party.size()-2; j++){
           System.out.print(" ");
         }
-      }
+      } 
       /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
     }
 
