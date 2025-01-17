@@ -101,7 +101,7 @@ public class Game{
       for (int i = 0; i < party.size(); i++){
         nameLength += party.get(i).getName().length();
       }
-      Text.go(2,2);
+      Text.go(startRow,2);
       for (int i = 0; i < party.size(); i++){
         System.out.print("Name:" + party.get(i).getName());
         for (int j = 0; j < (80-nameLength)/party.size()-2; j++){
@@ -113,7 +113,7 @@ public class Game{
       for (int i = 0; i < party.size(); i++){
         HPLength += Integer.toString(party.get(i).getHP()).length();
       }
-      Text.go(3,2);
+      Text.go(startRow+1,2);
       for (int i = 0; i < party.size(); i++){
         System.out.print("HP:" + party.get(i).getHP());
         for (int j = 0; j < (80-HPLength)/party.size()-2; j++){
@@ -125,7 +125,7 @@ public class Game{
       for (int i = 0; i < party.size(); i++){
         specialLength += Integer.toString(party.get(i).getSpecial()).length();
       }
-      Text.go(4,2);
+      Text.go(startRow+2,2);
       for (int i = 0; i < party.size(); i++){
         System.out.print("SP:" + party.get(i).getSpecial());
         for (int j = 0; j < (80-specialLength)/party.size()-2; j++){
@@ -167,7 +167,7 @@ public class Game{
     party.add(new Charizard());
     party.add(new Venusaur());
     party.add(new Blastoise());
-    drawParty(party,24);
+    drawParty(party,26);
     //draw enemy party
     ArrayList<Adventurer> enemies = new ArrayList<>();
     enemies.add(new Charizard());
