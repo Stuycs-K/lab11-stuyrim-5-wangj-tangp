@@ -14,7 +14,7 @@ public class Game{
   public static void drawBackground(){
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
     for(int col= 1;col<=80;col++) {
-        Text.go(0,col);
+        Text.go(1,col);
         System.out.print("-");
         Text.go(6,col);
         System.out.print("-");
@@ -167,8 +167,13 @@ public class Game{
     party.add(new Charizard());
     party.add(new Venusaur());
     party.add(new Blastoise());
-    drawParty(party,3);
+    drawParty(party,24);
     //draw enemy party
+    ArrayList<Adventurer> enemies = new ArrayList<>();
+    enemies.add(new Charizard());
+    enemies.add(new Venusaur());
+    enemies.add(new Blastoise());
+    drawParty(enemies,2);
 
   }
 
@@ -237,7 +242,8 @@ public class Game{
 
     //display this prompt at the start of the game.
     String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
-
+    Text.go(31,2);
+    System.out.print(preprompt);
     while(! (input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit"))){
       //Read user input
       input = userInput(in);
@@ -281,13 +287,15 @@ public class Game{
           //This is a player turn.
           //Decide where to draw the following prompt:
           String prompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
-
+          Text.go(31,2);
+          System.out.print(prompt);
 
         }else{
           //This is after the player's turn, and allows the user to see the enemy turn
           //Decide where to draw the following prompt:
           String prompt = "press enter to see monster's turn";
-
+          Text.go(31,2);
+          System.out.print(prompt);
           partyTurn = false;
           whichOpponent = 0;
         }
@@ -320,7 +328,8 @@ public class Game{
 
         //Decide where to draw the following prompt:
         String prompt = "press enter to see next turn";
-
+        Text.go(31,2);
+        System.out.print(prompt);
         whichOpponent++;
 
       }//end of one enemy.
@@ -334,8 +343,9 @@ public class Game{
         partyTurn=true;
         //display this prompt before player's turn
         String prompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
+        Text.go(31,2);
+        System.out.print(prompt);
       }
-
       //display the updated screen after input has been processed.
       drawScreen();
 
