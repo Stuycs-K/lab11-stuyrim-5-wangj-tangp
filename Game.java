@@ -205,14 +205,14 @@ public class Game{
     //Make an ArrayList of Adventurers and add 1-3 enemies to it.
     //If only 1 enemy is added it should be the boss class.
     //start with 1 boss and modify the code to allow 2-3 adventurers later.
-    ArrayList<Adventurer>enemies = new ArrayList<Adventurer>();
+    ArrayList<Adventurer> enemies = new ArrayList<>();
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    int numEnemy=(int)(Math.random()*3)+1;
-    if(numEnemy==1){
+    int numEnemy=(int) (Math.random() * 3) + 1;
+    if (numEnemy==1){
       enemies.add(new Boss());
-    }else{
-      while(numEnemy>0){
-        createRandomAdventurer();
+    } else{
+      while(numEnemy > 0){
+        enemies.add(createRandomAdventurer());
         numEnemy--;
       }
     }
@@ -241,9 +241,10 @@ public class Game{
     //Main loop
 
     //display this prompt at the start of the game.
-    String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
+    String preprompt = "Enter command for " + party.get(whichPlayer) + ": attack/special/quit";
     Text.go(31,2);
     System.out.print(preprompt);
+
     while(! (input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit"))){
       //Read user input
       input = userInput(in);
@@ -253,51 +254,67 @@ public class Game{
 
       //display event based on last turn's input
       if(partyTurn){
-
+        Adventurer currentPlayer = party.get(whichPlayer);
+        
         //Process user input for the last Adventurer:
         if(input.equals("attack") || input.equals("a")){
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          party.get(whichPlayer).attack(enemies.get(whichOpponent));
+          if (enemies.size() > 0) {
+            currentPlayer.attack(enemies.get(whichOpponent));
+            System.out.println(currentPlayer + " attacked " + enemies.get(whichOpponent));
+          } else {
+            System.out.println("No enemies left to attack!");
+          }
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
         else if(input.equals("special") || input.equals("sp")){
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          party.get(whichPlayer).specialAttack(enemies.get(whichOpponent));
+          if (enemies.size() > 0) {
+            currentPlayer.specialAttack(enemies.get(whichOpponent));
+            System.out.println(currentPlayer + " used a special attack on " + enemies.get(whichOpponent));
+        } else {
+            System.out.println("No enemies left to attack!");
+        }
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
         else if(input.startsWith("su ") || input.startsWith("support ")){
           //"support 0" or "su 0" or "su 2" etc.
           //assume the value that follows su  is an integer.
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          if (input.startsWith("su ")){
-            party.get(whichPlayer).support(enemies.get(Integer.parseInt(input.substring(3))));
-          }
-          else{
-            party.get(whichPlayer).support(enemies.get(Integer.parseInt(input.substring(8))));
+          int targetIndex;
+          try {
+            targetIndex = Integer.parseInt(input.split(" ")[1]);
+            if (targetIndex >= 0 && targetIndex < enemies.size()) {
+              currentPlayer.support(enemies.get(targetIndex));
+              System.out.println(currentPlayer + " supported " + enemies.get(targetIndex));
+            } else {
+              System.out.println("Invalid target index for support!");
+            }
+          } catch (Exception e) {
+            System.out.println("Error parsing support target!");
           }
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+        } else {
+          System.out.println("Invalid command! Try: attack/special/support/quit");
+          
         }
 
         //You should decide when you want to re-ask for user input
         //If no errors:
         whichPlayer++;
 
-
-        if(whichPlayer < party.size()){
-          //This is a player turn.
-          //Decide where to draw the following prompt:
+        
+        if (whichPlayer >= party.size()) {
+          partyTurn = false;
+          whichOpponent = 0;
+          whichPlayer = 0;
+          Text.go(31,2);
+          System.out.println("Enemy's turn. Press Enter to continue.");
+          input = userInput(in); // Wait for Enter
+        } else {
           String prompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
           Text.go(31,2);
           System.out.print(prompt);
-
-        }else{
-          //This is after the player's turn, and allows the user to see the enemy turn
-          //Decide where to draw the following prompt:
-          String prompt = "press enter to see monster's turn";
-          Text.go(31,2);
-          System.out.print(prompt);
-          partyTurn = false;
-          whichOpponent = 0;
         }
         //done with one party member
       }else{
@@ -307,20 +324,22 @@ public class Game{
         //enemy attacks a randomly chosen person with a randomly chosen attack.z`
         //Enemy action choices go here!
         /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-        Adventurer opponent= enemies.get(whichOpponent);
-          if(opponent.getSpecial()>=opponent.getSpecialMax()){
-            opponent.specialAttack(party.get((int)(Math.random()*party.size())));
-          }else {
-            if(opponent.getHP()<.5*opponent.getmaxHP()){
-              int randSupport=(int)(Math.random()*2);
-              if(randSupport==0){
-                opponent.support();
-            }else{
-              opponent.support(enemies.get((int)(Math.random()*enemies.size())));
+        Adventurer currentEnemy = enemies.get(whichOpponent);
+
+        if (currentEnemy.getSpecial() >= currentEnemy.getSpecialMax()) {
+            currentEnemy.specialAttack(party.get((int) (Math.random() * party.size())));
+            System.out.println(currentEnemy + " used a special attack!");
+        } else if (currentEnemy.getHP() < 0.5 * currentEnemy.getmaxHP()) {
+            if (Math.random() < 0.5) {
+                currentEnemy.support();
+                System.out.println(currentEnemy + " supported itself!");
+            } else if (enemies.size() > 1) {
+                currentEnemy.support(enemies.get((int) (Math.random() * enemies.size())));
+                System.out.println(currentEnemy + " supported an ally!");
             }
-          }else{
-            opponent.attack(party.get((int)(Math.random()*party.size())));
-          }
+        } else {
+            currentEnemy.attack(party.get((int) (Math.random() * party.size())));
+            System.out.println(currentEnemy + " attacked a party member!");
         }
 
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
@@ -331,7 +350,12 @@ public class Game{
         Text.go(31,2);
         System.out.print(prompt);
         whichOpponent++;
-
+        if (whichOpponent >= enemies.size()) {
+          partyTurn = true;
+          whichOpponent = 0;
+          System.out.println("Party's turn. Press Enter to continue.");
+          input = userInput(in); // Wait for Enter
+        }
       }//end of one enemy.
 
       //modify this if statement.
