@@ -2,7 +2,7 @@ public class Boss extends Adventurer{
   private int HP,maxHP,energy,maxEnergy;
   private double dmgBoost;
   public Boss(){
-    this.setName("Mewtwo");
+    super("Mewtwo",1000);
     this.HP=1000;
     this.maxHP=1000;
     this.energy=50;
