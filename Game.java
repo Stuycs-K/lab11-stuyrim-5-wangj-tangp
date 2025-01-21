@@ -256,10 +256,10 @@ public class Game{
         String result = "";
         boolean correctInput = false;
         while (correctInput == false){
-          if (input.equals("attack") || input.equals("a")){
+          if (input.startsWith("attack") || input.startsWith("a")){
             correctInput = true;
             break;
-          } else if(input.equals("special") || input.equals("sp")){
+          } else if(input.startsWith("special") || input.startsWith("sp")){
             correctInput = true;
             break;
           } else if(input.startsWith("su") || input.startsWith("support")){
@@ -278,20 +278,30 @@ public class Game{
         Text.go(32,2);
         System.out.print("                      ");
         //Process user input for the last Adventurer:
-        if(input.equals("attack") || input.equals("a")){
+        if(input.startsWith("attack") || input.startsWith("a")){
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          if(whichOpponent<enemies.size()){
-            result=currentPlayer.attack(enemies.get(whichOpponent));
+          if(input.contains(" ")) {
+              int targetIndex=Integer.parseInt(input.split(" ")[1]);
+              if (targetIndex < enemies.size()) {
+                result=currentPlayer.attack(enemies.get(targetIndex));
+              }else{
+                result= "Invalid target for attack!";
+              }
           }else{
-            result= "No enemy to attack!";
+              result=currentPlayer.attack(enemies.get(whichOpponent));
           }
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-        }else if(input.equals("special") || input.equals("sp")){
+        }else if(input.startsWith("special") || input.startsWith("sp")){
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          if(whichOpponent<enemies.size()){
-            result=currentPlayer.specialAttack(enemies.get(whichOpponent));
+          if(input.contains(" ")) {
+              int targetIndex=Integer.parseInt(input.split(" ")[1]);
+              if (targetIndex < enemies.size()) {
+                result=currentPlayer.specialAttack(enemies.get(targetIndex));
+              }else{
+                result= "Invalid target for attack!";
+              }
           }else{
-            result= "No enemy to attack!";
+              result=currentPlayer.specialAttack(enemies.get(whichOpponent));
           }
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
