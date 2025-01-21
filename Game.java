@@ -271,11 +271,11 @@ public class Game{
           }
           Text.go(31,2);
           System.out.print("Invalid command! Try: attack/special/support/quit" + "                    ");
-          Text.go(32,2); 
+          Text.go(32,2);
           System.out.print("                      ");
           input = userInput(in);
         }
-        Text.go(32,2); 
+        Text.go(32,2);
         System.out.print("                      ");
         //Process user input for the last Adventurer:
         if(input.equals("attack") || input.equals("a")){
@@ -391,6 +391,24 @@ public class Game{
         Text.go(31,2);
         System.out.print(prompt);
       }
+      for(Adventurer adventurer : party){
+        if(adventurer.getStatusCondition("burn")){
+          int burnDamage = (int)(adventurer.getmaxHP() * 0.05);
+          adventurer.applyDamage(burnDamage);
+          Text.go(turnRow, 2);
+          System.out.println(adventurer.getName()+ " took " + burnDamage + " damage from burn!");
+          turnRow++;
+        }
+      }
+      for(Adventurer adventurer : enemies){
+        if(adventurer.getStatusCondition("burn")){
+          int burnDamage = (int)(adventurer.getmaxHP() * 0.05);
+          adventurer.applyDamage(burnDamage);
+          Text.go(turnRow, 2);
+          System.out.println(adventurer.getName()+ " took " + burnDamage + " damage from burn!");
+          turnRow++;
+        }
+      }
       party.removeIf(adventurer -> adventurer.getHP() <= 0);
       enemies.removeIf(adventurer -> adventurer.getHP() <= 0);
       if(party.isEmpty()){
@@ -406,8 +424,8 @@ public class Game{
       }
       //display the updated screen after input has been processed.
       drawScreen(party,enemies);
-      
-      
+
+
 
     }//end of main game loop
 

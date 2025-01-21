@@ -56,9 +56,9 @@ public class Venusaur extends Adventurer{
   }
 
   public String support(Adventurer other){
-    other.applyStatus("sleep");
+    other.applyStatus("burn");
     restoreSpecial(30);
-    return "Venusaur used Sleep Powder. " + other.getName() + " is now asleep.";
+    return "Venusaur used Sludge Bomb. " + other.getName() + " is now burned.";
   }
 
   public String support(){

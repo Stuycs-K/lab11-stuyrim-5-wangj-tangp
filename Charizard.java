@@ -72,11 +72,6 @@ public class Charizard extends Adventurer{
     return "Charizard used Blast Burn, dealing " + damage + " damage.";
   }
 
-  public String mega(){
-    dmgBoost=1.5;
-    return this+" used Dragon Dance. "+this+ "'s damage is increased by 1.5x.";
-  }
-
   public void setDmgBoost(int boost){
     dmgBoost = boost;
   }

@@ -1,7 +1,7 @@
 public abstract class Adventurer{
   private String name;
   private int HP,maxHP;
-  private boolean burn, sleep, leechEnemy, leechSelf, hyper, toxic;
+  private boolean burn;
   private double dmgBoost;
 
 
@@ -95,18 +95,6 @@ public abstract class Adventurer{
     if (condition.equals("burn")){
       return burn;
     }
-    else if (condition.equals("sleep")){
-      return sleep;
-    }
-    else if (condition.equals("leechSelf")){
-      return leechSelf;
-    }
-    else if (condition.equals("leechEnemy")){
-      return leechEnemy;
-    }
-    else if (condition.equals("hyper")){
-      return hyper;
-    }
     return false;
   }
 
@@ -132,28 +120,9 @@ public abstract class Adventurer{
   public void applyStatus(String condition){
     if (condition.equals("haze")){
       burn = false;
-      sleep = false;
-      leechEnemy = false;
-      leechSelf = false;
-      hyper = false;
     }
     else if (condition.equals("burn")){
       burn = true;
-    }
-    else if (condition.equals("sleep")){
-      sleep = true;
-    }
-    else if (condition.equals("leechSelf")){
-      leechSelf = true;
-    }
-    else if (condition.equals("leechEnemy")){
-      leechEnemy = true;
-    }
-    else if (condition.equals("hyper")){
-      hyper = true;
-    }
-    else if (condition.equals("toxic")){
-      toxic = true;
     }
   }
   public void setDmgBoost(int boost){
