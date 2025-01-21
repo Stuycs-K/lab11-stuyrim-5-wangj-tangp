@@ -52,7 +52,7 @@ public class Charizard extends Adventurer{
   //heall or buff self
   public String support(){
     int currentHP = getHP();
-    setHP(getHP()+175);
+    setHP(getHP()+125);
     int finalHP = getHP();
     restoreSpecial(30);
     return "Charizard used Roost, restoring " + Integer.toString((finalHP-currentHP)) + " HP.";
