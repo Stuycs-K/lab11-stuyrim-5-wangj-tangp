@@ -41,14 +41,14 @@ public class Charizard extends Adventurer{
     int damage= (((int)(Math.random() * 15) + 85) * 90) /100;
     other.applyDamage(damage*dmgBoost);
     restoreSpecial(30);
-    return "Charizard used Flamethrower, dealing " + damage + "damage.";
+    return "Charizard used Flamethrower, dealing " + damage + " damage.";
   }
 
   //heall or buff the target adventurer
   public String support(Adventurer other){
     other.applyStatus("burn");
     restoreSpecial(30);
-    return "Charizard used Will-o-Wisp. " + other.getName() + "is now burned.";
+    return "Charizard used Will-o-Wisp. " + other.getName() + " is now burned.";
   }
 
   //heall or buff self
@@ -57,19 +57,19 @@ public class Charizard extends Adventurer{
     setHP(getHP()+175);
     int finalHP = getHP();
     restoreSpecial(30);
-    return "Charizard used roost, restoring " + Integer.toString((finalHP-currentHP)) + "HP.";
+    return "Charizard used roost, restoring " + Integer.toString((finalHP-currentHP)) + " HP.";
   }
 
   //hurt or hinder the target adventurer, consume some special resource
   public String specialAttack(Adventurer other){
-    int damage = (((int)(Math.random() * 15) + 85) * 150) /100;
+    int damage= (int)(Math.random() * 1.15 * 150);
     if(getSpecial()>=60){
       other.applyDamage(damage);
       setSpecial(getSpecial()-60);
     }else{
       return "Charizard tried to use Blast Burn but didnt have enough energy. Instead, " + attack(other);
     }
-    return "Charizard used Blast Burn, dealing " + damage + "damage.";
+    return "Charizard used Blast Burn, dealing " + damage + " damage.";
   }
 
   public String mega(){

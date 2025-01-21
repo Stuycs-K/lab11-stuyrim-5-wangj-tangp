@@ -41,7 +41,7 @@ public class Venusaur extends Adventurer{
     int currentHP = getHP();
     setHP(getHP() + damage);
     int finalHP = getHP();
-    return "Venusaur used Giga Drain, dealing " + damage + "damage." + "Venusuar also restored " + Integer.toString(finalHP - currentHP);
+    return "Venusaur used Giga Drain, dealing " + damage + " damage." + " Venusuar also restored " + Integer.toString(finalHP - currentHP)+ " HP";
   }
 
   public String specialAttack(Adventurer other){
@@ -52,13 +52,13 @@ public class Venusaur extends Adventurer{
     }else{
       return "Venusaur tried to use Solar Beam but didnt have enough energy. Instead, " + attack(other);
     }
-    return "Venusaur used Solar Beam, dealing " + damage + "damage.";
+    return "Venusaur used Solar Beam, dealing " + damage + " damage.";
   }
 
   public String support(Adventurer other){
     other.applyStatus("sleep");
     restoreSpecial(30);
-    return "Venusaur used Sleep Powder. " + other.getName() + "is now asleep.";
+    return "Venusaur used Sleep Powder. " + other.getName() + " is now asleep.";
   }
 
   public String support(){

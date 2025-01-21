@@ -35,7 +35,7 @@ public class Blastoise extends Adventurer{
     int damage= (((int)(Math.random() * 15) + 85) * 110) /100;
     other.applyDamage(damage*dmgBoost);
     restoreSpecial(30);
-    return "Blastoise used Hydro Pump, dealing " + damage + "damage.";
+    return "Blastoise used Hydro Pump, dealing " + damage + " damage.";
   }
 
   //heall or buff the target adventurer
@@ -53,7 +53,7 @@ public class Blastoise extends Adventurer{
     int finalHP = getHP();
     restoreSpecial(30);
     dmgBoost=2;
-    return "Blastoise used Shell Smash. Blastoise lost " + Integer.toString(finalHP - currentHP) +  "and increased damage by 2x.";
+    return "Blastoise used Shell Smash. Blastoise lost " + Integer.toString(finalHP - currentHP) +  " and increased damage by 2x.";
   }
 
   //hurt or hinder the target adventurer, consume some special resource
@@ -66,7 +66,7 @@ public class Blastoise extends Adventurer{
     }else{
       return "Blastoise tried to use Water Spout but didnt have enough energy. Instead, " + attack(other);
     }
-    return "Blastoise used Water Spout, dealing " + damage + "damage.";
+    return "Blastoise used Water Spout, dealing " + damage + " damage.";
   }
 
   public void setDmgBoost(int boost){
