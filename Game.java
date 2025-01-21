@@ -259,10 +259,13 @@ public class Game{
           if (input.equals("attack") || input.equals("a")){
             correctInput = true;
             break;
-          }else if(input.equals("special") || input.equals("sp")){
+          } else if(input.equals("special") || input.equals("sp")){
             correctInput = true;
             break;
-          }else if(input.startsWith("su") || input.startsWith("support")){
+          } else if(input.startsWith("su") || input.startsWith("support")){
+            correctInput = true;
+            break;
+          } else if (input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit")){
             correctInput = true;
             break;
           }
@@ -307,9 +310,8 @@ public class Game{
               result=currentPlayer.support();
           }
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-        } else if (!(input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit"))) {
-          System.out.println("Invalid command! Try: attack/special/support/quit" + "                    ");
-          continue;
+        } else if (input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit")) {
+          break;
         }
 
         //You should decide when you want to re-ask for user input
@@ -381,6 +383,7 @@ public class Game{
         //THIS BLOCK IS TO END THE ENEMY TURN
         //It only triggers after the last enemy goes.
         whichPlayer = 0;
+        whichOpponent = 0;
         turn++;
         partyTurn=true;
         //display this prompt before player's turn
@@ -391,18 +394,17 @@ public class Game{
       party.removeIf(adventurer -> adventurer.getHP() <= 0);
       enemies.removeIf(adventurer -> adventurer.getHP() <= 0);
       if(party.isEmpty()){
+        drawScreen(party,enemies);
         Text.go(turnRow, 2);
         System.out.println("Game Over! Your party has been defeated.");
         break;
       }else if(enemies.isEmpty()){
+        drawScreen(party,enemies);
         Text.go(turnRow, 2);
         System.out.println("Congratulations! You've defeated all enemies!");
         break;
       }
       //display the updated screen after input has been processed.
-      if(turnRow>=24){
-        turnRow=7;
-      }
       drawScreen(party,enemies);
       
       

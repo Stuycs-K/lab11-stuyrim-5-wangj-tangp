@@ -4,7 +4,7 @@ public class Boss extends Adventurer{
   public Boss(){
     super("Mewtwo",1000);
     this.maxHP=1000;
-    this.energy=50;
+    this.energy=0;
     this.maxEnergy=200;
     this.dmgBoost=1;
     }
@@ -35,7 +35,7 @@ public class Boss extends Adventurer{
     int damage= (((int)(Math.random() * 15) + 85) * 140) /100;
     other.applyDamage(damage*dmgBoost);
     restoreSpecial(60);
-    return "Mewtwo used Aura Sphere, dealing " + damage + "damage.";
+    return "Mewtwo used Aura Sphere, dealing " + damage + " damage.";
   }
 
   public String specialAttack(Adventurer other){
@@ -46,13 +46,13 @@ public class Boss extends Adventurer{
     }else{
       return "Mewtwo tried to use Psystrike but didnt have enough energy. Instead, " + attack(other);
     }
-    return "Mewtwo used Psystrike, dealing " + damage + "damage.";
+    return "Mewtwo used Psystrike, dealing " + damage + " damage.";
   }
 
   public String support(Adventurer other){
-    other.applyStatus("toxic");
+    other.applyStatus("sleep");
     restoreSpecial(30);
-    return "Mewtwo used Toxic. " + other.getName() + "is now asleep.";
+    return "Mewtwo used Spore. " + other.getName() + " is now asleep.";
   }
 
   public String support(){
