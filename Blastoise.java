@@ -52,7 +52,7 @@ public class Blastoise extends Adventurer{
     int finalHP = getHP();
     restoreSpecial(30);
     this.setDmgBoost((int)this.getDmgBoost()+1);
-    return "Blastoise used Shell Smash. Blastoise lost " + Integer.toString(finalHP - currentHP) +  " and increased damage by 100%.";
+    return "Blastoise used Shell Smash. Blastoise lost " + Integer.toString(finalHP - currentHP) +  "HP and increased damage by 100%.";
   }
 
   //hurt or hinder the target adventurer, consume some special resource

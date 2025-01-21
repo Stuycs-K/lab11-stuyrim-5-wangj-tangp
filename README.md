@@ -35,6 +35,7 @@ Gameplay notes:
 - Base Power(BP) is the maximum possible damage dealt. Every attack has a random multiplier of 0.85-1x, allowing for randomization to occur.
 - A supporting move that increases damage dealt is always percentage based.
 - SP, or special power, is restored everytime a non-special move is used. There is usually a maximum, as displayed below.
+- You can choose who to use an action on by doing "attack/support #" (e.g. a 1, support 2, etc.) You cannot choose nothing by doing something such as "a_" or "a_6", as 6 would be out of bounds (The game will break if "a_" or "su_" is called :question:).
 
 
 
