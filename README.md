@@ -54,7 +54,7 @@ Gameplay notes:
 |---|---|---|
 |Special|Solar Beam|Has 140 BP :white_check_mark: |
 |Attack|Giga Drain|Has 70 BP :white_check_mark: |
-|Support|Sleep Powder|Skips the target's turn, with a 50% chance to "wake up" and remove sleep condition every turn. :white_check_mark: |
+|Support|Sludge Bomb|Burns enemy, doing 1/8 of max hp per turn. :white_check_mark: |
 |Self-support|Sunny Day|Increases attack damage by 1.5x :white_check_mark: |
 
 ## Boss(Mewtwo)
