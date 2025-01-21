@@ -1,15 +1,13 @@
 public class Venusaur extends Adventurer{
   private int HP,maxHP,energy,maxEnergy;
-  private double dmgBoost;
 
   /*the other constructors ultimately call the constructor
   *with all parameters.*/
   public Venusaur(){
-    super("Venusaur",350);
+    super("Venusaur",350, 1);
     this.maxHP=350;
     this.energy=0;
     this.maxEnergy=200;
-    this.dmgBoost=1;
   }
 
   /*The next 8 methods are all required because they are abstract:*/
@@ -35,8 +33,8 @@ public class Venusaur extends Adventurer{
   }
 
   public String attack(Adventurer other){
-    int damage= (((int)(Math.random() * 15) + 85) * 70) /100;
-    other.applyDamage(damage*dmgBoost);
+    int damage= (int)(((((int)(Math.random() * 15) + 85) * 70) /100) * this.getDmgBoost());
+    other.applyDamage(damage);
     restoreSpecial(30);
     int currentHP = getHP();
     setHP(getHP() + damage);
@@ -45,7 +43,7 @@ public class Venusaur extends Adventurer{
   }
 
   public String specialAttack(Adventurer other){
-    int damage = (((int)(Math.random() * 15) + 85) * 140) /100;
+    int damage = (int)(((((int)(Math.random() * 15) + 85) * 140) /100) * this.getDmgBoost());
     if(getSpecial()>=60){
       other.applyDamage(damage);
       setSpecial(getSpecial()-60);
@@ -56,18 +54,16 @@ public class Venusaur extends Adventurer{
   }
 
   public String support(Adventurer other){
-    other.applyStatus("burn");
+    int currentHP = other.getHP();
+    other.setHP(getHP()+175);
+    int finalHP = other.getHP();
     restoreSpecial(30);
-    return "Venusaur used Sludge Bomb. " + other.getName() + " is now burned.";
+    return "Venusaur used Synthesis, restoring " + Integer.toString((finalHP-currentHP)) + " HP to " + other.getName();
   }
 
   public String support(){
     restoreSpecial(30);
-    dmgBoost = 1.5;
-    return "Venusaur used Sunny Day. It's damage is now multiplied by 1.5x.";
-  }
-
-  public void setDmgBoost(int boost){
-    dmgBoost = boost;
+    this.setDmgBoost(2);
+    return "Venusaur used Sunny Day. It's damage is now increased by 100%.";
   }
 }

@@ -1,12 +1,10 @@
 public class Boss extends Adventurer{
   private int HP,maxHP,energy,maxEnergy;
-  private double dmgBoost;
   public Boss(){
-    super("Mewtwo",1000);
+    super("Mewtwo",1000, 1);
     this.maxHP=1000;
     this.energy=0;
     this.maxEnergy=200;
-    this.dmgBoost=1;
     }
 
   /*The next 8 methods are all required because they are abstract:*/
@@ -33,7 +31,7 @@ public class Boss extends Adventurer{
 
   public String attack(Adventurer other){
     int damage= (((int)(Math.random() * 15) + 85) * 140) /100;
-    other.applyDamage(damage*dmgBoost);
+    other.applyDamage(damage);
     restoreSpecial(60);
     return "Mewtwo used Aura Sphere, dealing " + damage + " damage.";
   }
@@ -50,9 +48,11 @@ public class Boss extends Adventurer{
   }
 
   public String support(Adventurer other){
-    other.applyStatus("sleep");
+    int currentHP = other.getHP();
+    other.setHP(getHP()*2);
+    int finalHP = other.getHP();
     restoreSpecial(30);
-    return "Mewtwo used Spore. " + other.getName() + " is now asleep.";
+    return "Mewtwo used Recover, restoring " + Integer.toString((finalHP-currentHP)) + " HP to " + other.getName();
   }
 
   public String support(){
@@ -61,9 +61,5 @@ public class Boss extends Adventurer{
     int finalHP = getHP();
     restoreSpecial(30);
     return "Mewtwo used Amnesia, restoring " + Integer.toString((finalHP-currentHP)) + "HP.";
-  }
-
-  public void setDmgBoost(int boost){
-    dmgBoost = boost;
   }
 }

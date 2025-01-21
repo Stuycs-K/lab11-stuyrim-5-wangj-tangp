@@ -370,7 +370,7 @@ public class Game{
            }
 
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-        if (turnRow >= 24){
+        if (turnRow >= 23){
           Text.clear();
           drawScreen(party,enemies);
           turnRow = 7;

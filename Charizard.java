@@ -6,13 +6,11 @@ public class Charizard extends Adventurer{
 
 
   private int HP,maxHP,energy,maxEnergy;
-  private double dmgBoost;
   public Charizard(){
-    super("Charizard",250);
+    super("Charizard",250,1);
     this.maxHP=250;
     this.energy=0;
     this.maxEnergy=200;
-    this.dmgBoost=1;
   }
   public String getSpecialName(){
     return "Blast Burn";
@@ -38,17 +36,17 @@ public class Charizard extends Adventurer{
   //hurt or hinder the target adventurer
   //3-5 dmg
   public String attack(Adventurer other){
-    int damage= (((int)(Math.random() * 15) + 85) * 90) /100;
-    other.applyDamage(damage*dmgBoost);
+    int damage= (int)(((((int)(Math.random() * 15) + 85) * 90) /100) * this.getDmgBoost());
+    other.applyDamage(damage);
     restoreSpecial(30);
     return "Charizard used Flamethrower, dealing " + damage + " damage.";
   }
 
   //heall or buff the target adventurer
   public String support(Adventurer other){
-    other.applyStatus("burn");
+    other.setDmgBoost((int)other.getDmgBoost() + 1);
     restoreSpecial(30);
-    return "Charizard used Will-o-Wisp. " + other.getName() + " is now burned.";
+    return "Charizard used Helping Hand. " + other.getName() + " now does +100% damage.";
   }
 
   //heall or buff self
@@ -57,12 +55,12 @@ public class Charizard extends Adventurer{
     setHP(getHP()+175);
     int finalHP = getHP();
     restoreSpecial(30);
-    return "Charizard used roost, restoring " + Integer.toString((finalHP-currentHP)) + " HP.";
+    return "Charizard used Roost, restoring " + Integer.toString((finalHP-currentHP)) + " HP.";
   }
 
   //hurt or hinder the target adventurer, consume some special resource
   public String specialAttack(Adventurer other){
-    int damage= (int)(Math.random() * 1.15 * 150);
+    int damage= (int)(((((int)(Math.random() * 15) + 85) * 150) /100) * this.getDmgBoost());    
     if(getSpecial()>=60){
       other.applyDamage(damage);
       setSpecial(getSpecial()-60);
@@ -70,9 +68,5 @@ public class Charizard extends Adventurer{
       return "Charizard tried to use Blast Burn but didnt have enough energy. Instead, " + attack(other);
     }
     return "Charizard used Blast Burn, dealing " + damage + " damage.";
-  }
-
-  public void setDmgBoost(int boost){
-    dmgBoost = boost;
   }
 }

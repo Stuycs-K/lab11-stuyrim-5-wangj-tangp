@@ -2,7 +2,7 @@ public abstract class Adventurer{
   private String name;
   private int HP,maxHP;
   private boolean burn;
-  private double dmgBoost;
+  private int dmgBoost;
 
 
   //Abstract methods are meant to be implemented in child classes.
@@ -64,13 +64,14 @@ public abstract class Adventurer{
   }
 
   public Adventurer(String name){
-    this(name, 10);
+    this(name, 10, 1);
   }
 
-  public Adventurer(String name, int hp){
+  public Adventurer(String name, int hp, int dmgBoost){
     this.name = name;
     this.HP = hp;
     this.maxHP = hp;
+    this.dmgBoost = dmgBoost;
   }
 
   //toString method
@@ -128,4 +129,8 @@ public abstract class Adventurer{
   public void setDmgBoost(int boost){
     dmgBoost = boost;
   }
+  public int getDmgBoost(){
+    return dmgBoost;
+  }
 }
+
