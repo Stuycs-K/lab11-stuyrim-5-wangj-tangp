@@ -54,7 +54,7 @@ Gameplay notes:
 |---|---|---|
 |Special|Solar Beam|Has 140 BP :white_check_mark: |
 |Attack|Giga Drain|Has 70 BP :white_check_mark: |
-|Support|Sleep Powder|Skips the target's turn, with a 50% chance to "wake up" and remove sleep condition every turn. :question: |
+|Support|Sleep Powder|Skips the target's turn, with a 50% chance to "wake up" and remove sleep condition every turn. :white_check_mark: |
 |Self-support|Sunny Day|Increases attack damage by 1.5x :white_check_mark: |
 
 ## Boss(Mewtwo)
@@ -63,7 +63,7 @@ Gameplay notes:
 |---|---|---|
 |Special|Psystrike|Has 280 BP :white_check_mark: |
 |Attack|Aura Sphere|Has 140 BP :white_check_mark: |
-|Support|Toxic|Reduce damage done by the opponent by 1/2 and does 1/8 max hp of enemy per turn. :question:  |
+|Support|Toxic|Reduce damage done by the opponent by 1/2 and does 1/8 max hp of enemy per turn. :white_check_mark:  |
 |Self-support|Amnesia|Doubles current hp :white_check_mark: |
 
 
