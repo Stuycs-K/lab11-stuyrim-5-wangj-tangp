@@ -38,7 +38,7 @@ public class Charizard extends Adventurer{
   //hurt or hinder the target adventurer
   //3-5 dmg
   public String attack(Adventurer other){
-    int damage= (int)(Math.random() * 1.15 * 90);
+    int damage= (((int)(Math.random() * 15) + 85) * 90) /100;
     other.applyDamage(damage*dmgBoost);
     restoreSpecial(30);
     return "Charizard used Flamethrower, dealing " + damage + "damage.";
@@ -62,7 +62,7 @@ public class Charizard extends Adventurer{
 
   //hurt or hinder the target adventurer, consume some special resource
   public String specialAttack(Adventurer other){
-    int damage = (int)(Math.random() * 1.15 * 150);
+    int damage = (((int)(Math.random() * 15) + 85) * 150) /100;
     if(getSpecial()>=60){
       other.applyDamage(damage);
       setSpecial(getSpecial()-60);

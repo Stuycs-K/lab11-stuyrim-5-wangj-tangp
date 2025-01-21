@@ -2,8 +2,7 @@ public class Boss extends Adventurer{
   private int HP,maxHP,energy,maxEnergy;
   private double dmgBoost;
   public Boss(){
-    this.setName("Mewtwo");
-    this.HP=1000;
+    super("Mewtwo",1000);
     this.maxHP=1000;
     this.energy=50;
     this.maxEnergy=200;
@@ -33,14 +32,14 @@ public class Boss extends Adventurer{
   }
 
   public String attack(Adventurer other){
-    int damage= (int)(Math.random() * 1.15 * 140);
+    int damage= (((int)(Math.random() * 15) + 85) * 140) /100;
     other.applyDamage(damage*dmgBoost);
     restoreSpecial(60);
     return "Mewtwo used Aura Sphere, dealing " + damage + "damage.";
   }
 
   public String specialAttack(Adventurer other){
-    int damage = (int)(Math.random() * 1.15 * 280);
+    int damage = (((int)(Math.random() * 15) + 85) * 280) /100;
     if(getSpecial()>=200){
       other.applyDamage(damage);
       setSpecial(getSpecial()-200);

@@ -35,7 +35,7 @@ public class Venusaur extends Adventurer{
   }
 
   public String attack(Adventurer other){
-    int damage= (int)(Math.random() * 1.15 * 70);
+    int damage= (((int)(Math.random() * 15) + 85) * 70) /100;
     other.applyDamage(damage*dmgBoost);
     restoreSpecial(30);
     int currentHP = getHP();
@@ -45,7 +45,7 @@ public class Venusaur extends Adventurer{
   }
 
   public String specialAttack(Adventurer other){
-    int damage = (int)(Math.random() * 1.15 * 140);
+    int damage = (((int)(Math.random() * 15) + 85) * 140) /100;
     if(getSpecial()>=60){
       other.applyDamage(damage);
       setSpecial(getSpecial()-60);

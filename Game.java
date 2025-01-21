@@ -159,7 +159,6 @@ public class Game{
   //Do not write over the blank areas where text will appear.
   //Place the cursor at the place where the user will by typing their input at the end of this method.
   public static void drawScreen(ArrayList<Adventurer> party, ArrayList<Adventurer> enemies){
-    Text.clear();
     drawBackground();
     //draw player party
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
@@ -244,12 +243,31 @@ public class Game{
       //display event based on last turn's input
       if(partyTurn){
         Text.go(31,2);
-        String prompt = "Enter command for " + party.get(whichPlayer) + ": attack/special/quit";
+        String prompt = "Enter command for " + party.get(whichPlayer) + ": attack/special/support/quit";
         System.out.print(prompt + "                    ");
         input = userInput(in);
         Adventurer currentPlayer = party.get(whichPlayer);
-        String result="";
-
+        String result = "";
+        boolean correctInput = false;
+        while (correctInput == false){
+          if (input.equals("attack") || input.equals("a")){
+            correctInput = true;
+            break;
+          }else if(input.equals("special") || input.equals("sp")){
+            correctInput = true;
+            break;
+          }else if(input.startsWith("su") || input.startsWith("support")){
+            correctInput = true;
+            break;
+          }
+          Text.go(31,2);
+          System.out.print("Invalid command! Try: attack/special/support/quit" + "                    ");
+          Text.go(32,2); 
+          System.out.print("                      ");
+          input = userInput(in);
+        }
+        Text.go(32,2); 
+        System.out.print("                      ");
         //Process user input for the last Adventurer:
         if(input.equals("attack") || input.equals("a")){
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
@@ -260,7 +278,7 @@ public class Game{
           result=currentPlayer.specialAttack(enemies.get(whichOpponent));
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
-        else if(input.startsWith("su ") || input.startsWith("support ")){
+        else if(input.startsWith("su") || input.startsWith("support")){
           //"support 0" or "su 0" or "su 2" etc.
           //assume the value that follows su  is an integer.
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
@@ -271,9 +289,6 @@ public class Game{
               result=currentPlayer.support();
           }
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-        } else {
-          System.out.println("Invalid command! Try: attack/special/support/quit" + "                    ");
-
         }
 
         //You should decide when you want to re-ask for user input
@@ -319,12 +334,21 @@ public class Game{
         }
 
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-        Text.go(turnRow, 2);
-        System.out.println(result);
-        turnRow++;
+        if (turnRow >= 24){
+          Text.clear();
+          drawScreen(party,enemies);
+          turnRow = 7;
+          Text.go(turnRow, 2);
+          System.out.println(result);
+          turnRow++;
+        }
+        else{
+          Text.go(turnRow, 2);
+          System.out.println(result);
+          turnRow++;
+        }
 
         //Decide where to draw the following prompt:
-        Text.go(31,2);
         whichOpponent++;
       }//end of one enemy.
 
@@ -336,14 +360,15 @@ public class Game{
         turn++;
         partyTurn=true;
         //display this prompt before player's turn
-        String prompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit" + "                    " ;
+        whichOpponent = 0;
+        String prompt = "Enter command for "+party.get(whichPlayer)+": attack/special/support/quit" + "                    " ;
         Text.go(31,2);
         System.out.print(prompt);
       }
       //display the updated screen after input has been processed.
-      drawBackground();
       drawScreen(party,enemies);
-
+      
+      
 
     }//end of main game loop
 

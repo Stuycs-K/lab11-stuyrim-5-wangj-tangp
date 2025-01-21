@@ -32,9 +32,9 @@ public class Blastoise extends Adventurer{
   //hurt or hinder the target adventurer
   //3-5 dmg
   public String attack(Adventurer other){
-    int damage= (int)(Math.random() * 1.15 * 110);
+    int damage= (((int)(Math.random() * 15) + 85) * 110) /100;
     other.applyDamage(damage*dmgBoost);
-    restoreSpecial(10);
+    restoreSpecial(30);
     return "Blastoise used Hydro Pump, dealing " + damage + "damage.";
   }
 
@@ -59,10 +59,10 @@ public class Blastoise extends Adventurer{
   //hurt or hinder the target adventurer, consume some special resource
   //3-8 dmg
   public String specialAttack(Adventurer other){
-    int damage= (int)(Math.random() * 1.15 * 150);
-    if(getSpecial()>=100){
+    int damage= (((int)(Math.random() * 15) + 85) * 150) /100;
+    if(getSpecial()>=60){
       other.applyDamage(damage);
-      setSpecial(getSpecial()-100);
+      setSpecial(getSpecial()-60);
     }else{
       return "Blastoise tried to use Water Spout but didnt have enough energy. Instead, " + attack(other);
     }
