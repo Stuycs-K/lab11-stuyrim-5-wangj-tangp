@@ -24,10 +24,16 @@ Make a clear list of features that work/dont work
 - 1/12 Finished movesets (implementation) for both Blastoise and Charizard classes.
 - 1/13 Worked on terminal, created border and generate random enemies.
 - 1/14 Changed Boss class and continued working on terminal.
+- 1/15 Added turns (takes input but does not work as intended)
+- 1/16 and 1/17 got turn prompts/answers to appear (Does not update the HP/stats)
+- 1/18 Screen updates as intended, no death/method of winning.
+- 1/19 added a method to win
+- 1/20 Fixed bugs, added balancing, fixed some impossible to implement features.
 
 Gameplay notes:
 - Cannot heal above max hp.
-- Base Power(BP) is the minimum damage dealt. Every attack has a random multiplier from 1-1.15x every attack.
+- Base Power(BP) is the maximum possible damage dealt. Every attack has a random multiplier of 0.85-1x, allowing for randomization to occur.
+- A supporting move that increases damage dealt is always percentage based.
 
 
 ## Charizard
